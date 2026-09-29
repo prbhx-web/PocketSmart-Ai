@@ -1,0 +1,529 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Pocket Smart AI Dashboard"
+    >
+
+    <title>
+        Dashboard | Pocket Smart AI
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', path='css/style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         Navigation
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="container navbar-content">
+
+            <a
+                href="/"
+                class="logo"
+            >
+                <span class="logo-icon">
+                    💰
+                </span>
+
+                Pocket Smart AI
+            </a>
+
+
+            <nav class="nav-links">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a
+                    href="/dashboard"
+                    class="active"
+                >
+                    Dashboard
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         Dashboard Header
+    ====================================================== -->
+
+    <main>
+
+        <section class="dashboard-header">
+
+            <div class="container">
+
+                <span class="section-label">
+                    PERSONAL FINANCE
+                </span>
+
+                <h1>
+                    Your Financial Dashboard
+                </h1>
+
+                <p>
+                    Monitor your budget, understand your
+                    spending and get AI-powered recommendations.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             Financial Summary
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="dashboard-grid">
+
+                    <!-- Budget -->
+
+                    <div class="card dashboard-card">
+
+                        <div class="dashboard-icon blue">
+                            💰
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Total Budget
+                            </span>
+
+                            <h3 id="total-budget">
+                                ₹0.00
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Spent -->
+
+                    <div class="card dashboard-card">
+
+                        <div class="dashboard-icon red">
+                            💸
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Total Spent
+                            </span>
+
+                            <h3 id="total-spent">
+                                ₹0.00
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Remaining -->
+
+                    <div class="card dashboard-card">
+
+                        <div class="dashboard-icon green">
+                            💵
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Remaining
+                            </span>
+
+                            <h3 id="remaining-budget">
+                                ₹0.00
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Utilization -->
+
+                    <div class="card dashboard-card">
+
+                        <div class="dashboard-icon purple">
+                            📊
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Budget Used
+                            </span>
+
+                            <h3 id="budget-percentage">
+                                0%
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     Budget Progress
+                ================================================== -->
+
+                <div class="card progress-card">
+
+                    <div class="progress-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                MONTHLY PROGRESS
+                            </span>
+
+                            <h2>
+                                Budget Utilization
+                            </h2>
+
+                        </div>
+
+                        <strong id="budget-percentage">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress-track">
+
+                        <div
+                            id="budget-progress"
+                            class="progress-bar"
+                            style="width: 0%;"
+                        ></div>
+
+                    </div>
+
+
+                    <p
+                        id="budget-status"
+                        class="budget-status safe"
+                    >
+                        Your spending is currently within
+                        your budget.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             Two Column Dashboard
+        ================================================== -->
+
+        <section class="section section-light">
+
+            <div class="container">
+
+                <div class="two-column-grid">
+
+
+                    <!-- =================================================
+                         Expense History
+                    ================================================== -->
+
+                    <div class="card">
+
+                        <div class="card-header">
+
+                            <div>
+
+                                <span class="section-label">
+                                    TRANSACTIONS
+                                </span>
+
+                                <h2>
+                                    Expense History
+                                </h2>
+
+                            </div>
+
+                            <a
+                                href="/"
+                                class="btn btn-small btn-primary"
+                            >
+                                + Add Expense
+                            </a>
+
+                        </div>
+
+
+                        <div
+                            id="expense-list"
+                            class="expense-list"
+                        >
+
+                            <div class="empty-state">
+
+                                <div class="empty-icon">
+                                    🧾
+                                </div>
+
+                                <h3>
+                                    No expenses yet
+                                </h3>
+
+                                <p>
+                                    Add your first expense
+                                    to start tracking your
+                                    spending.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =================================================
+                         AI Recommendation
+                    ================================================== -->
+
+                    <div class="card ai-dashboard-card">
+
+                        <div class="ai-heading">
+
+                            <span class="ai-icon">
+                                🤖
+                            </span>
+
+                            <div>
+
+                                <span class="section-label">
+                                    AI ASSISTANT
+                                </span>
+
+                                <h2>
+                                    Smart Recommendation
+                                </h2>
+
+                            </div>
+
+                        </div>
+
+
+                        <p>
+                            Pocket Smart AI can analyze your
+                            spending patterns and suggest ways
+                            to manage your budget.
+                        </p>
+
+
+                        <button
+                            id="get-recommendation"
+                            type="button"
+                            class="btn btn-primary btn-full"
+                        >
+                            ✨ Analyze My Spending
+                        </button>
+
+
+                        <div
+                            id="loading"
+                            class="loading"
+                            style="display: none;"
+                        >
+                            Pocket Smart AI is analyzing
+                            your spending...
+                        </div>
+
+
+                        <div
+                            id="ai-recommendation"
+                            class="recommendation-box"
+                        >
+                            Your personalized AI recommendation
+                            will appear here.
+                        </div>
+
+
+                        <button
+                            id="copy-recommendation"
+                            type="button"
+                            class="btn btn-outline btn-full"
+                        >
+                            📋 Copy Recommendation
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             Dashboard Actions
+        ================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="card action-card">
+
+                    <div>
+
+                        <span class="section-label">
+                            ACTIONS
+                        </span>
+
+                        <h2>
+                            Manage Your Budget
+                        </h2>
+
+                        <p>
+                            Continue tracking your expenses or
+                            generate a report of your current
+                            financial activity.
+                        </p>
+
+                    </div>
+
+
+                    <div class="action-buttons">
+
+                        <a
+                            href="/"
+                            class="btn btn-primary"
+                        >
+                            + Add Expense
+                        </a>
+
+                        <button
+                            id="print-report"
+                            type="button"
+                            class="btn btn-secondary"
+                        >
+                            🖨 Print Report
+                        </button>
+
+                        <button
+                            id="reset-budget"
+                            type="button"
+                            class="btn btn-danger"
+                        >
+                            🗑 Reset Budget
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         Footer
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <h3>
+                        💰 Pocket Smart AI
+                    </h3>
+
+                    <p>
+                        Your smart companion for better
+                        budgeting and spending decisions.
+                    </p>
+
+                </div>
+
+                <div>
+
+                    <p>
+                        AI-generated recommendations are
+                        for informational purposes only.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © 2026 Pocket Smart AI.
+                    All rights reserved.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script
+        src="{{ url_for('static', path='js/script.js') }}"
+    ></script>
+
+</body>
+
+</html>
+```
